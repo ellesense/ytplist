@@ -68,7 +68,7 @@ router.post(
 
 // sign in
 router.post(
-  "/signin",
+  "/login",
   [
     check("email", "A valid email is required.").isEmail(),
     check("password", "Password is required.").exists(),

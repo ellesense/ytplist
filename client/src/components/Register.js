@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form, Input } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { setAlert } from "../actions/alert";
+import { register } from "../actions/auth";
 
-function Register() {
+function Register(props) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,15 +21,16 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      // do something
+      props.setAlert("passwords do not match", "warning");
     } else {
-      // do something
+      props.register({ name, email, password });
     }
   };
 
   return (
     <div>
       <h1>Register</h1>
+
       <Form onSubmit={handleSubmit}>
         <Form.Field>
           <label>Nickname</label>
@@ -76,4 +80,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default connect(null, { setAlert, register })(Register);

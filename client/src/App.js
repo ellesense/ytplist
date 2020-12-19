@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Menubar from "./components/Menubar";
+import Alert from "./components/Alert";
 import LandingPage from "./components/LandingPage";
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Menubar />
         <div className="ui container">
+          <Alert />
           <Switch>
             <Route
               exact
